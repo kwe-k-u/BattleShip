@@ -4,16 +4,34 @@
 
 
 
-# imports
+#                           imports
 from graphics import *
 
+#                   global variables
+window = GraphWin("Battleship royal", 300,300)
+window.setCoords(0,0,100,120)
+centerX = []
+centerY = []
+
+
+
+
+#                    Function definitions
 def drawInterface():
 
     #drawing the window
-    window = GraphWin("something", 300,300)
-    window.setCoords(0,0,100,100)
 
     #adding the grid for the markets
     for column in range(10):
         for row in range(10):
-            Rectangle(Point(0+(row*10),0+(column*10)),Point(20+(row*10),20+(column*10))).draw(window)
+            rectangle = Rectangle(Point(0+(row*10),0+(column*10)),Point(10+(row*10),10+(column*10)))
+            rectangle.draw(window)
+            point = rectangle.getCenter()
+            centerX.append(point.getX())
+            centerY.append(point.getY())
+# =============================================================================
+            x = point.getX()
+            y = point.getY()
+            Point(x,y).draw(window)
+# =============================================================================
+
