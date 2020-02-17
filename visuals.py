@@ -6,13 +6,13 @@
 
 #                           imports
 from graphics import *
+centerX = []
+centerY = []
 
 #                   global variables
 window = GraphWin("Battleship royal", 300,300)
 window.setCoords(0,0,100,120)
-centerX = []
-centerY = []
-
+grids = [] # array to hold the various grid squares
 
 
 
@@ -27,11 +27,15 @@ def drawInterface():
             rectangle = Rectangle(Point(0+(row*10),0+(column*10)),Point(10+(row*10),10+(column*10)))
             rectangle.draw(window)
             point = rectangle.getCenter()
-            centerX.append(point.getX())
+
+
+            grids.append(rectangle)
+            print(rectangle)
+
             centerY.append(point.getY())
-# =============================================================================
-            x = point.getX()
-            y = point.getY()
-            Point(x,y).draw(window)
-# =============================================================================
+
+            centerX.append(point.getX())
+# This function changes the colours of the grid
+def colourRec(rectangle):
+    rectangle.setFill('red')
 
