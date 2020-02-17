@@ -28,13 +28,13 @@ def drawInterface():
             rectangle.draw(window)
             point = rectangle.getCenter()
 
+            grids.append(rectangle) #registers each instance of grid in an array
 
-            grids.append(rectangle)
-            print(rectangle)
-
+            # remembers the cordinates of the grid centers for click and placement cordination
             centerY.append(point.getY())
-
             centerX.append(point.getX())
+
+
 # This function changes the colours of the grid
 def colourRec(rectangle):
     rectangle.setFill('red')

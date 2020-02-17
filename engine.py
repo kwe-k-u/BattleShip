@@ -1,24 +1,11 @@
 #this is the logical engine for the game
 from visuals import *
+from random import randint
 
 userClick = [] # array to hold the user click positions
 minePositions = [] # array to hold the positions of the mines
 
 
-#This function runs the game loop
-def main():
-    drawInterface()
-
-    while True:
-        click = window.getMouse()
-        onClick(click)
-
-#This function generates random positions for the cake mines
-# =============================================================================
-# def placeMines():
-#
-#
-# =============================================================================
 # this function determines which box was clicked
 def onClick(cordinates):
     x = cordinates.getX()
@@ -53,9 +40,28 @@ def findMine(rectangle):
     if rectangle==2:
         something =3
 
-#
+
+# This function places the mines in the grids
+def placeMine():
+    for i in range(5):
+        print(len(grids))
+        place = randint(0,len(grids))
+
+        #record the mine position
+        minePositions.append(whichGrid(centerX[place],centerY[place]))
+    print(minePositions)
+
+# This function runs the game loop
+def main():
+    drawInterface()
+    placeMine()
 
 
+    #WARNING this should be last in the function
+    while True:
+        click = window.getMouse()
+        onClick(click)
+    #place the mines in the game
 
 #running the game
 main()
