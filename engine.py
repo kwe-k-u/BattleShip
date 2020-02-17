@@ -14,7 +14,10 @@ def onClick(cordinates):
     y = getcenterY(y)
 
     #Determines which grid was clicked
-    colourRec(whichGrid(x,y))
+    rectangle = whichGrid(x,y)
+    if rectangle not in userClick:
+        colourRec(rectangle,findMine(rectangle))
+        userClick.append(rectangle)
 
 #Determines which grid was clicked
 def whichGrid(x,y):
@@ -37,13 +40,15 @@ def getcenterY(clickY):
 
 # This function checks if the clicked on square already contains a mine
 def findMine(rectangle):
-    if rectangle==2:
-        something =3
+    if rectangle in minePositions:
+        return "green"
+    else:
+        return "red"
 
 
 # This function places the mines in the grids
 def placeMine():
-    for i in range(5):
+    for i in range(10):
         print(len(grids))
         place = randint(0,len(grids))
 

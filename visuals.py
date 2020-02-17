@@ -36,6 +36,6 @@ def drawInterface():
 
 
 # This function changes the colours of the grid
-def colourRec(rectangle):
-    rectangle.setFill('red')
+def colourRec(rectangle, colour):
+    rectangle.setFill(colour)
 
